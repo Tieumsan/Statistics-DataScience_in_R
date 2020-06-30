@@ -1,5 +1,3 @@
-# Title     : TODO
-# Objective : TODO
 # Created by: mlleg
 # Created on: 14.06.2020
 

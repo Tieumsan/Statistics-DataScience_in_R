@@ -15,26 +15,26 @@ hist(successes)
 #pbinom(q, size, prob) where q is the number of observations,
 #size is the number of trials, prob is the probability
 
-# dbinom(x, n, prob) = f(n, p) (returns the PDF)
+# dbinom(x, n, prob) = f(n, p) (returns the value of the PDF at x)
 #Part A
 f_x <- dbinom(7, 10, 0.65)
 f_x
 #Part B
-# pbinom(x, n, prob) = F(n, p) (returns the CDF)
+# pbinom(x, n, prob) = F(n, p) (returns the value of the CDF at x)
 F_x <- pbinom(7, 10, 0.65)
 F_x
 #Part C
 Fi_x <- pbinom(6, 10, 0.65, lower.tail = FALSE)
 Fi_x
-# qbinom(x, n, prob) = F^-1(n, p) (returns the inverse of the CDF)
+# qbinom(x, n, prob) = F^-1(n, p) (returns the inverse of the CDF -> the value for which the CDF is equal to x)
 
 #Question 14
 binom_draws <- as_tibble(data.frame(successes))
 mutate(count(group_by(binom_draws, successes), n=n()), freq=n/(sum(binom_draws)))
 estimated_pf <- binom_draws %>%
   group_by(successes) %>%
-  _______(n=n()) %>%
-  mutate(freq=n/sum(______))
+  summarize(n=n()) %>%
+  mutate(freq=n/sum(n))
 
 ggplot(estimated_pf, aes(x=successes, y=freq)) +
   geom_col() +
