@@ -26,3 +26,5 @@ d5 <- "12/30/14"
 mdy(d5)
 
 now(tz = "Europe/Moscow")
+
+?dplyr::near
